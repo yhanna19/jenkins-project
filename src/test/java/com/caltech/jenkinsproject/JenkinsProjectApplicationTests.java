@@ -14,38 +14,38 @@ import org.openqa.selenium.chrome.ChromeDriver;
 @SpringBootTest
 class JenkinsProjectApplicationTests {
 
-	private static String Base_URL = "https://www.facebook.com";
-	private WebDriver driver;
+	 private static String Base_Url = "https://www.facebook.com";
+    private WebDriver driver;
 
-	@Before 
-	public void setUp()
-	{
-		driver = new ChromeDriver();
-		driver.get(Base_URL);
-	}
+    @Before
+    public void setUp()
+    {
+        driver = new ChromeDriver();
+        driver.get(Base_Url);
+    }
 
-	@After
-	public void after()
-	{
-		driver.quit();
-	}
+    @After
+    public void after()
+    {
+        driver.quit();
+    }
 
-	@Test
-	public void testCasePassed() 
-	{
-		Assert.assertTrue(driver.findElement(By.xpath("//form[@id='login_form']")).isDisplayed());
-	}
+    @Test
+    public void testCasePassed()
+    {
+        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='login_form']")).isDisplayed());
+    }
 
-	@Test
-	public void testCaseFailed()
-	{
-		Assert.assertTrue(driver.findElement(By.xpath("//form[@id='failed case']")).isDisplayed());
-	}
+    @Test
+    public void testCaseFailed()
+    {
+        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='failed case']")).isDisplayed());
+    }
 
-	@Ignore
-	@Test
-	public void testCaseIgnored()
-	{
-		Assert.assertTrue(driver.findElement(By.xpath("//form[@id='ignored case']")).isDisplayed());
-	}
+    @Ignore
+    @Test
+    public void testCaseIgnored()
+    {
+        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='ignored case']")).isDisplayed());
+    }
 }
