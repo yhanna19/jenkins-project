@@ -9,7 +9,7 @@ pipeline {
                 echo 'Checking out git repo'
                 git url: 'https://github.com/yhanna19/jenkins-project.git'
                 echo 'Building code'
-                sh 'mvn compile'
+                sh 'mvn compile war:war'
             }
         }
         stage('Code Testing'){
