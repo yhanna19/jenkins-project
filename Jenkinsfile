@@ -23,6 +23,7 @@ pipeline {
             steps{
                 echo "Deploying Code"
                 sh 'mvn package -DskipTests'
+                deploy adapters: [tomcat9(path: '', url: 'http://ec2-54-208-23-216.compute-1.amazonaws.com:8080')], contextPath: 'app', war: 'target/*war'
             }
         }
     }
