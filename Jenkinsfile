@@ -24,6 +24,7 @@ pipeline {
                 echo "Deploying Code"
                 sh 'mvn package -DskipTests'
                 deploy adapters: [tomcat9(credentialsId: '2dc55763-9fb8-45bc-bc9a-783d8f11f416', path: '', url: 'http://ec2-54-208-23-216.compute-1.amazonaws.com:8080')], contextPath: 'app', war: 'target/*.war'
+                emailext body: 'Deployment Failed', recipientProviders: [buildUser()], subject: 'Jenkins Build Failed', to: 'tootyah101@g.ucla.edu'
                 }
         }
     }
